@@ -25,10 +25,11 @@ function generatePassword() {
   }
   var upperoptions = 
   {
-    upper: ['A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z'],
+    upper: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
     upandlow: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
-    upnum: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1,2,3,4,5,6,7,8,9'],
+    upnum: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9'],
     upsym: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','!','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[','\',','^','_','`','{','|','}','~','"'],
+    upnumsym: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','!','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[','\',','^','_','`','{','|','}','~','"'],
     uplownum: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9'],
     all: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','!','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[','\',','^','_','`','{','|','}','~','"']
   }
@@ -66,20 +67,28 @@ if (choice1 == true && choice2 == true && choice3 == true && choice4 == true) {
   final = loweroptions.all
 } else if (choice1 == false && choice2 == false && choice3 == false && choice4 == false) {
   return 'You must make at least one selection'
+} else if (choice1 == true && choice2 == false && choice3 == false && choice4 == false) {
+  final = loweroptions.lower
+} else if (choice1 == false && choice2 == true && choice3 == false && choice4 == false) {
+  final = upperoptions.upper
 } else if (choice1 == true && choice2 == true && choice3 == false && choice4 == false) {
   final = loweroptions.upandlow
 } else if (choice1 == false && choice2 == false && choice3 == true && choice4 == true) {
   return 'you must have letters in your password'
 } else if (choice1 == true && choice2 == false && choice3 == true && choice4 == false) {
-  final = loweroptions.low
+  final = loweroptions.lownum
 } else if (choice1 == false && choice2 == true && choice3 == false && choice4 == true) {
-  final = loweroptions.low
+  final = upperoptions.upsym
 } else if (choice1 == false && choice2 == true && choice3 == true && choice4 == false) {
-  final = loweroptions.low
+  final = upperoptions.upnum
 } else if (choice1 == true && choice2 == false && choice3 == false && choice4 == true) {
-  final = loweroptions.low
+  final = loweroptions.lowsym
+} else if (choice1 == true && choice2 == false && choice3 == true && choice4 == true) {
+  final = loweroptions.lownumsym
+} else if (choice1 == false && choice2 == true && choice3 == true && choice4 == true) {
+  final = upperoptions.upnumsym
 }
- 
+
   for (let i = 0; i < length; i++) {
     var random = Math.random() * final.length;
     var floored = Math.floor(random);
