@@ -22,15 +22,20 @@ function generatePassword() {
   var symbols = ['!','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[','\',','^','_','`','{','|','}','~','"'];
 
   //Ensuring proper length before proceeding
-  length = prompt('Please choose a password length between 8 and 124 characters.');
-
+  length = parseInt(prompt('Please choose a password length between 8 and 124 characters.'));
+  console.log(length)
+  if (isNaN(length) || typeof length != 'number') {
+    return ('Please choose a number')
+  }
   if (length < 8) {
     return ('Please choose a password at least 8 characters long');
-  } else if(length > 124) {
+  } 
+  if(length > 124) {
     return ('Please choose a password less than 125 characters');
   }  
 
   //Setting variables for logic
+
   choices.includeLower = confirm('Would you like to include lowercase letters?');
   choices.includeUpper = confirm('Would you like to include uppercase letters?');
 
