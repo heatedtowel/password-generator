@@ -22,7 +22,6 @@ function generatePassword() {
 
   //Ensuring proper length before proceeding
   length = parseInt(prompt('Please choose a password length between 8 and 124 characters.'));
-  console.log(length)
   if (isNaN(length) || typeof length != 'number') {
     return ('Please choose a number')
   }
