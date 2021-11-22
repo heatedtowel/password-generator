@@ -6,8 +6,7 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   
   //Setting initial variables
-  var str = '';
-  var final = '';
+  var str = ''; 
   var choices = {
     includeUpper: false,
     includeLower: false,
